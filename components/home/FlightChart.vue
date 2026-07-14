@@ -257,7 +257,7 @@ const selectPoint = (pt) => {
   fill: #E63757;
   font-weight: 700;
   font-size: 12px;
-  display: block !important; /* Hari ini selalu muncul */
+  display: block !important;
 }
 
 .limit-label {

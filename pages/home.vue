@@ -137,14 +137,14 @@ const getDaysRemaining = (expiryDate) => {
 
 const getStatusClass = (expiryDate) => {
   const days = getDaysRemaining(expiryDate);
-  if (days <= 0) return 'red';      // Expired
-  if (days <= 30) return 'amber';   // Warning
-  return 'green';                   // Safe
+  if (days <= 0) return 'red';      // expired
+  if (days <= 30) return 'amber';   // warning
+  return 'green';                   // safe
 };
 </script>
 
 <style lang="scss" scoped>
-/* default fallback jika tidak ada main.scss:
+/* default fallback
 $navy: #0E2138; $red: #E63757; $text-sec: #6B7280; $white: #FFFFFF;
 */
 

@@ -5,15 +5,10 @@
 
   <div v-else class="schedule-page">
     <header class="page-header">
-      <!-- Tombol Navigasi Kiri -->
       <button class="nav-btn" @click="changeMonth(-1)">←</button>
-      
-      <!-- Trigger Picker di Tengah -->
       <h2 class="current-date-text" @click="showPicker = true">
         {{ currentMonthName }}
       </h2>
-      
-      <!-- Tombol Navigasi Kanan -->
       <button class="nav-btn" @click="changeMonth(1)">→</button>
     </header>
 
@@ -40,7 +35,7 @@
       </div>
     </div>
 
-    <!-- Kalender dengan Event Swipe -->
+    <!-- kalender  -->
     <div @touchstart="handleTouchStart" @touchend="handleTouchEnd">
       <ScheduleCalendar :month="currentDate" />
     </div>
@@ -69,7 +64,7 @@ const currentMonthName = computed(() => {
   return currentDate.value.toLocaleString('en-US', { month: 'long', year: 'numeric' });
 });
 
-// Computed untuk sinkronisasi tahun di Picker
+// sinkronisasi tahun di picker
 const selectedYear = computed({
   get: () => currentDate.value.getFullYear(),
   set: (val) => currentDate.value = new Date(val, currentDate.value.getMonth(), 1)
@@ -84,14 +79,14 @@ const changeMonth = (val) => {
   currentDate.value = new Date(currentDate.value.getFullYear(), currentDate.value.getMonth() + val, 1);
 };
 
-// Logika Swipe
+// swipe
 const handleTouchStart = (e) => {
   touchStartX.value = e.changedTouches[0].screenX;
 };
 
 const handleTouchEnd = (e) => {
   const diff = e.changedTouches[0].screenX - touchStartX.value;
-  // Threshold 50px untuk deteksi swipe
+  // threshold 50px untuk deteksi swipe
   if (Math.abs(diff) > 50) {
     changeMonth(diff > 0 ? -1 : 1);
   }

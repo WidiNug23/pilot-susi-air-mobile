@@ -54,7 +54,7 @@
   }
 
   &.router-link-active {
-    color: $navy; // Navy Primary
+    color: $navy;
     
     .icon {
       transform: scale(1.05);
