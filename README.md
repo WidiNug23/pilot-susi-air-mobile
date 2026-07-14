@@ -11,7 +11,6 @@ A mobile-first web application designed for pilots to monitor flight hours, duty
 ## Setup & Running
 
 1. Clone the repository
-```bash
 git clone (https://github.com/WidiNug23/pilot-susi-air-mobile.git)
 cd susi-air-pilot
 
@@ -29,8 +28,6 @@ npm install -D sass
 npm run dev
 the application will be available at: http://localhost:3000
 
-
-Brief Notes
 
 If I had more time, I would implement unit testing to ensure the accuracy of the flight hour calculation logic and integrate real-time data fetching from a database via an API. Furthermore, I plan to enhance the application by adding detailed scheduling views, implementing additional visualizations such as pie and bar charts for flight hours, and developing an integrated pilot logbook feature.
 
