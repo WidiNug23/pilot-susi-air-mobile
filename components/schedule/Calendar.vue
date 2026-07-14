@@ -43,8 +43,7 @@ const getCellStyle = (day) => {
 };
 
 const handleTap = (day) => {
-  const duty = getDutyDetails(day);
-  alert(duty ? `Duty: ${duty.duty_type} - ${duty.base_name}` : "No duty scheduled");
+  alert("Detail page coming soon");
 };
 </script>
 
