@@ -27,7 +27,7 @@ npm install -D sass
 ```bash 
 npm run dev
 ```
-the application will be available at http://localhost:3000
+application will be available at http://localhost:3000
 
 
 If I had more time, I would implement unit testing to ensure the accuracy of the flight hour calculation logic and integrate real-time data fetching from a database via an API. Furthermore, I plan to enhance the application by adding detailed scheduling views, implementing additional visualizations such as pie and bar charts for flight hours, and developing an integrated pilot logbook feature.
