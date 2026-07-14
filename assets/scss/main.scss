@@ -1,0 +1,56 @@
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+:root {
+  --navy: #0E2138;
+  --red: #E63757;
+  --bg: #F5F6F8;
+}
+
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--navy);
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #E5E7EB; // Garis tipis untuk profesionalisme
+}
+
+/* Typography Scale */
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+p { font-size: 14px; color: #6B7280; }
+
+/* Memastikan grid card tampil 2x2 di mobile */
+.limit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom untuk 2x2 */
+  gap: 12px;
+  padding: 16px;
+}
+
+.duty-badge {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 4px;
+}
+
+/* Duty Type Colors */
+.DTY { background: #1FBF8F; } // Success
+.RLV { background: #6B7280; } // Secondary
+.SCK { background: #E63757; } // Danger
+.TRV { background: #22C5E8; } // Chart Accent
+.TRX { background: #F59E0B; } // Warning
+.ADM { background: #0E2138; } // Primary
+.FER { background: #8B5CF6; } // Violet
+.MED { background: #F472B6; } // Pink
+.REC { background: #FBBF24; } // Amber
+.ULV { background: #9CA3AF; } // Gray
