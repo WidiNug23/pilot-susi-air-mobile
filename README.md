@@ -1,75 +1,37 @@
-# Nuxt Minimal Starter
+# Susi Air Pilot Dashboard
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A mobile-first web application designed for pilots to monitor flight hours, duty schedules, and document expiration status.
 
-## Setup
+## Tech Stack
+- Framework: Nuxt JS
+- State Management: Pinia
+- Styling: Sass (SCSS)
+- Deployment: Vercel
 
-Make sure to install dependencies:
+## Setup & Running
 
+1. Clone the repository
 ```bash
-# npm
+git clone (https://github.com/WidiNug23/pilot-susi-air-mobile.git)
+cd susi-air-pilot
+
+2. Install dependencies
+# Install main packages
 npm install
 
-# pnpm
-pnpm install
+# Install Pinia Nuxt module
+npm install @pinia/nuxt
 
-# yarn
-yarn install
+# Install Sass for styling
+npm install -D sass
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+3. Run in development mode
 npm run dev
+the application will be available at: http://localhost:3000
 
-# pnpm
-pnpm dev
 
-# yarn
-yarn dev
+Brief Notes
 
-# bun
-bun run dev
-```
+If I had more time, I would implement unit testing to ensure the accuracy of the flight hour calculation logic and integrate real-time data fetching from a database via an API. Furthermore, I plan to enhance the application by adding detailed scheduling views, implementing additional visualizations such as pie and bar charts for flight hours, and developing an integrated pilot logbook feature.
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+For this development, I chose Nuxt 3 because its auto-import features and intuitive folder structure significantly accelerate the development process. I utilized Pinia for state management to ensure a single source of truth for scheduling and flight data across all components, and Sass (SCSS) to maintain a structured, mobile-first design system. Additionally, if further backend integration is required, I would implement Laravel due to its robust ecosystem and efficient Model-View-Controller (MVC) architecture.
