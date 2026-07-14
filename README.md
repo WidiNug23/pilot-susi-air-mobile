@@ -11,21 +11,22 @@ A mobile-first web application designed for pilots to monitor flight hours, duty
 ## Setup & Running
 
 1. Clone the repository
+```bash 
 git clone (https://github.com/WidiNug23/pilot-susi-air-mobile.git)
 cd susi-air-pilot
-
+```
 2. Install dependencies
-# Install main packages
+```bash
 npm install
 
-# Install Pinia Nuxt module
 npm install @pinia/nuxt
 
-# Install Sass for styling
 npm install -D sass
-
+```
 3. Run in development mode
+```bash 
 npm run dev
+```
 the application will be available at: http://localhost:3000
 
 
