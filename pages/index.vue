@@ -45,7 +45,7 @@ const handleLogin = () => navigateTo('/home');
   margin-bottom: 40px;
   text-align: left;
   .logo { width: 120px; margin-bottom: 16px; }
-  h2 { font-size: 24px; color: #0E2138; margin: 0; }
+  h2 { font-size: 22px; color: #0E2138; margin: 0; }
   p { color: #6B7280; font-size: 14px; }
 }
 
@@ -68,7 +68,7 @@ const handleLogin = () => navigateTo('/home');
   background-color: #E63757;
   color: white;
   border: none;
-  border-radius: 24px; /* Pill shape */
+  border-radius: 24px; 
   font-weight: 700;
   cursor: pointer;
   margin-top: 10px;

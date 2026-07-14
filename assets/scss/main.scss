@@ -20,7 +20,7 @@ body {
   background: #FFFFFF;
   border-radius: 16px;
   padding: 16px;
-  border: 1px solid #E5E7EB; // Garis tipis untuk profesionalisme
+  border: 1px solid #E5E7EB; 
 }
 
 /* Typography Scale */
@@ -28,10 +28,9 @@ h1 { font-size: 20px; }
 h2 { font-size: 18px; }
 p { font-size: 14px; color: #6B7280; }
 
-/* Memastikan grid card tampil 2x2 di mobile */
 .limit-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2 kolom untuk 2x2 */
+  grid-template-columns: 1fr 1fr; /* 2 2x2 */
   gap: 12px;
   padding: 16px;
 }

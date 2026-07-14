@@ -3,14 +3,14 @@ import { ref } from 'vue';
 
 export const usePilotStore = defineStore('pilot', () => {
   // Gabungkan keduanya
-  const data = ref(null);         // Untuk dashboard (flightHours, limits, dll)
-  const documents = ref([]);      // Untuk dokumen
-  const schedules = ref([]);      // Untuk kalender
-  const legend = ref([]);         // Untuk legenda kalender
+  const data = ref(null);         //  dashboard (flightHours, limits, dll)
+  const documents = ref([]);      //  dokumen
+  const schedules = ref([]);      //  kalender
+  const legend = ref([]);         //  legenda kalender
   const loading = ref(false);
 
   const loadData = async () => {
-    // Gunakan pengecekan yang lebih fleksibel
+    // pengecekan fleksibel
     if (loading.value) return;
     loading.value = true;
     
@@ -21,7 +21,7 @@ export const usePilotStore = defineStore('pilot', () => {
         $fetch('/mock-schedules.json')
       ]);
       
-      // Update state
+      // update state
       data.value = hoursRes as any;
       documents.value = (docsRes as any).documents || [];
       schedules.value = (schedRes as any).schedules || [];

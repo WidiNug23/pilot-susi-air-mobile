@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          // Arahkan ke file variabel agar bersih dan tidak error
           additionalData: '@use "@/assets/scss/_variables.scss" as *;'
         }
       }

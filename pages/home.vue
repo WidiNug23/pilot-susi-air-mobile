@@ -35,7 +35,7 @@
       <h3 class="section-title">Upcoming Flight</h3>
       <div class="flight-card">
         <div class="flight-info">
-          <span class="flight-date">May 20, 2026 • 08:30</span>
+          <span class="flight-date">20 July, 2026 • 08:30</span>
           <div class="flight-route">
             <div class="route-point">
               <span class="icao">HLP</span>
@@ -43,8 +43,8 @@
             </div>
             <div class="route-arrow">✈</div>
             <div class="route-point">
-              <span class="icao">CGK</span>
-              <span class="city">Cengkareng</span>
+              <span class="icao">CJN</span>
+              <span class="city">Pangandaran</span>
             </div>
           </div>
         </div>
@@ -114,23 +114,22 @@ const { getRollingSum } = useFlightCalculations();
 const today = '2026-05-31';
 
 onMounted(async () => {
-  // Hanya fetch jika data hours ATAU data documents belum ada
   if (!store.data || store.documents.length === 0) {
     await store.loadData();
   }
 });
 
-// Computed properties untuk perhitungan jam terbang
+// perhitungan jam terbang
 const hours = computed(() => store.data?.flightHours || []);
 const dailySum = computed(() => getRollingSum(today, 1, hours.value));
 const weeklySum = computed(() => getRollingSum(today, 7, hours.value));
 const monthlySum = computed(() => getRollingSum(today, 30, hours.value));
 const annualSum = computed(() => getRollingSum(today, 365, hours.value));
 
-// Computed property untuk dokumen yang dipanggil dari store
+// dokumen yang dipanggil dari store
 const documentList = computed(() => store.documents || []);
 
-// Fungsi pembantu untuk dokumen
+// fungsi untuk dokumen
 const getDaysRemaining = (expiryDate) => {
   const diff = new Date(expiryDate) - new Date('2026-05-31');
   return Math.ceil(diff / (1000 * 60 * 60 * 24));
@@ -145,8 +144,7 @@ const getStatusClass = (expiryDate) => {
 </script>
 
 <style lang="scss" scoped>
-/* Gunakan variabel dari main.scss jika sudah disetel via nuxt.config */
-/* Default fallback jika tidak ada main.scss:
+/* default fallback jika tidak ada main.scss:
 $navy: #0E2138; $red: #E63757; $text-sec: #6B7280; $white: #FFFFFF;
 */
 
@@ -170,7 +168,7 @@ $navy: #0E2138; $red: #E63757; $text-sec: #6B7280; $white: #FFFFFF;
 
 .user-profile {
   flex: 1;
-  .welcome-text { font-size: 11px; color: #6B7280; margin: 0; }
+  .welcome-text { font-size: 12px; color: #6B7280; margin: 0; }
   h1 { font-size: 16px; margin: 0; color: #0E2138; font-weight: 700; }
   .flight-stats { font-size: 12px; color: #6B7280; margin: 0; }
 }
@@ -197,7 +195,7 @@ $navy: #0E2138; $red: #E63757; $text-sec: #6B7280; $white: #FFFFFF;
     right: 0;
     background: #E63757;
     color: #FFFFFF;
-    font-size: 8px;
+    font-size: 12px;
     font-weight: 700;
     min-width: 14px;
     height: 14px;
@@ -268,7 +266,7 @@ $navy: #0E2138; $red: #E63757; $text-sec: #6B7280; $white: #FFFFFF;
 }
 
 .city {
-  font-size: 11px;
+  font-size: 12px;
   color: #6B7280;
   text-transform: uppercase;
 }
@@ -301,7 +299,7 @@ $navy: #0E2138; $red: #E63757; $text-sec: #6B7280; $white: #FFFFFF;
 }
 
 .news-tag {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   color: #E63757;
@@ -365,7 +363,7 @@ $navy: #0E2138; $red: #E63757; $text-sec: #6B7280; $white: #FFFFFF;
 .status-badge {
   padding: 4px 8px;
   border-radius: 4px; 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   

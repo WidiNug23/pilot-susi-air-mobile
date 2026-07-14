@@ -1,7 +1,7 @@
 <template>
   <div class="loading-container">
     <div class="spinner"></div>
-    <p>Retrieving operational data...</p>
+    <p>Loading</p>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
   width: 32px;
   height: 32px;
   border: 3px solid #F5F6F8;
-  border-top: 3px solid #E63757; /* Brand red */
+  border-top: 3px solid #E63757;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 16px;

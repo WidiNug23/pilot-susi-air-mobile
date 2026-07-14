@@ -32,7 +32,7 @@ const startDayOffset = computed(() => {
 });
 
 const getDutyDetails = (day) => {
-  if (!store.schedules) return null; // Sesuaikan dengan store Anda
+  if (!store.schedules) return null;
   const dateStr = `${props.month.getFullYear()}-${String(props.month.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
   return store.schedules.find(s => s.duty_date === dateStr);
 };
@@ -51,7 +51,7 @@ const handleTap = (day) => {
 <style lang="scss" scoped>
 .calendar-card { background: white; padding: 16px; border-radius: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.03); }
 .weekdays { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 12px; }
-.weekdays span { text-align: center; font-size: 10px; color: #6B7280; font-weight: 700; text-transform: uppercase; }
+.weekdays span { text-align: center; font-size: 12px; color: #6B7280; font-weight: 700; text-transform: uppercase; }
 .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
 .day-cell { 
   aspect-ratio: 1; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center;

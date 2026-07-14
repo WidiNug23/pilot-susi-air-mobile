@@ -11,7 +11,7 @@ export const useFlightCalculations = () => {
         const entryDate = new Date(entry.date);
         return entryDate >= startDate && entryDate <= targetDate;
       })
-      // Menambahkan fallback (|| 0) jika 'hours' bernilai undefined/null
+      // menambahkan fallback (|| 0) jika 'hours' bernilai undefined/null
       .reduce((acc, curr) => acc + (curr.hours || 0), 0);
   };
 

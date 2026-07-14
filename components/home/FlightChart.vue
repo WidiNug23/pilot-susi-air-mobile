@@ -3,7 +3,7 @@
     <div class="chart-header">
       <h4 class="chart-title">Flight Hours Trend</h4>
       <div class="active-range-info">
-        Window: <span class="accent">{{ activeBounds.limit }}h limit</span>
+        <span class="accent">{{ activeBounds.limit }}h limit</span>
       </div>
     </div>
 
@@ -66,10 +66,11 @@
           v-for="(pt, idx) in chartPoints" 
           :key="'x-'+idx" 
           :x="pt.x" 
-          y="192" 
+          y="200" 
           class="axis-label x-label" 
           :class="{ 'bold-today': pt.isToday }"
-          text-anchor="middle"
+          text-anchor="start"
+          :transform="`rotate(-45, ${pt.x}, 200)`"
         >
           {{ pt.formattedDate }}
         </text>
@@ -104,7 +105,7 @@
 const store = usePilotStore();
 const { getRollingSum } = useFlightCalculations();
 
-// Konfigurasi dasar waktu pengerjaan proyek (Target Hari Ini: 31 Mei 2026)
+// hari ini 31 Mei 2026
 const todayStr = '2026-05-31';
 const currentToggle = ref('1w');
 const selectedPoint = ref(null);
@@ -117,12 +118,12 @@ const toggles = [
   { id: '1y', label: '1y', window: 365, limit: 1050, max: 1250 }
 ];
 
-// Mendapatkan konfigurasi batas Y aktif berdasarkan toggle yang dipilih
+// konfigurasi batas Y aktif 
 const activeBounds = computed(() => {
   return toggles.find(t => t.id === currentToggle.value);
 });
 
-// Menghitung posisi horizontal garis batas merah (Y-Limit Annotation)
+// hitung posisi horizontal garis batas merah
 const limitYPosition = computed(() => {
   const maxVal = activeBounds.value.max;
   const limitVal = activeBounds.value.limit;
@@ -130,7 +131,7 @@ const limitYPosition = computed(() => {
   return 170 - ((limitVal / maxVal) * 150);
 });
 
-// Membentuk window sum sebanyak 15 data point tunggal (T-7 sampai T+7)
+// window sum 15 data (T-7 sampai T+7)
 const displayDaysRange = computed(() => {
   const list = [];
   const baseDate = new Date(todayStr);
@@ -139,8 +140,6 @@ const displayDaysRange = computed(() => {
     const d = new Date(baseDate);
     d.setDate(baseDate.getDate() + i);
     const dateString = d.toISOString().split('T')[0];
-    
-    // Format label ringkas (misal: "24 May")
     const formattedDate = d.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
     list.push({
       dateString,
@@ -151,22 +150,22 @@ const displayDaysRange = computed(() => {
   return list;
 });
 
-// Mengkalkulasi titik-titik koordinat X dan Y untuk ditarik ke dalam grafik
+// titik-titik koordinat X dan Y untuk ditarik ke dalam grafik
 const chartPoints = computed(() => {
   const flightHours = store.data?.flightHours || [];
   const maxVal = activeBounds.value.max;
   const windowDays = activeBounds.value.window;
 
-  // Ukuran lebar kolom per titik dalam area koordinat SVG 40px ke 380px (lebar sisa 340px)
+  // ukuran lebar kolom per titik dalam area koordinat SVG 40px ke 380px (lebar sisa 340px)
   const xStart = 40;
   const xEnd = 380;
   const xSpacing = (xEnd - xStart) / 14; 
 
   return displayDaysRange.value.map((day, index) => {
-    // Jalankan rumus kalkulasi rolling sum penting dari composable
+    // run rumus kalkulasi rolling sum dari composable
     const rollingSumValue = getRollingSum(day.dateString, windowDays, flightHours);
     
-    // Konversi nilai sum menjadi posisi koordinat Y SVG (tinggi grafis 150px)
+    // konversi nilai sum menjadi posisi koordinat Y SVG
     const x = xStart + (index * xSpacing);
     const y = 170 - ((rollingSumValue / maxVal) * 150);
 
@@ -181,7 +180,7 @@ const chartPoints = computed(() => {
   });
 });
 
-// Membuat string jalur d-attribute SVG Path secara dinamis
+// membuat string jalur d-attribute SVG Path
 const linePath = computed(() => {
   const points = chartPoints.value;
   if (points.length === 0) return '';
@@ -239,16 +238,15 @@ const selectPoint = (pt) => {
 }
 
 .axis-label {
-  font-size: 10px;
+  font-size: 12px;
   fill: #6B7280;
   font-weight: 500;
 }
 
 .x-label {
-  font-size: 8px;
+  font-size: 12px;
   
   @media (max-width: 390px) {
-    // Menyembunyikan beberapa label tanggal di layar super sempit agar tidak tumpang tindih
     &:nth-child(even) {
       display: none;
     }
@@ -258,18 +256,18 @@ const selectPoint = (pt) => {
 .bold-today {
   fill: #E63757;
   font-weight: 700;
-  font-size: 9px;
-  display: block !important; /* Hari ini wajib selalu muncul */
+  font-size: 12px;
+  display: block !important; /* Hari ini selalu muncul */
 }
 
 .limit-label {
-  font-size: 9px;
+  font-size: 12px;
   fill: #E63757;
   font-weight: 700;
 }
 
 .today-marker {
-  font-size: 8px;
+  font-size: 12px;
   fill: #0E2138;
   font-weight: 600;
   letter-spacing: 0.5px;

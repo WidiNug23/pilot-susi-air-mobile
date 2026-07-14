@@ -20,7 +20,6 @@
 
 <style lang="scss" scoped>
 @use "~/assets/scss/_variables.scss" as *;
-/* Menggunakan variabel dari main.scss */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -43,14 +42,14 @@
   justify-content: center;
   text-decoration: none;
   color: $text-sec;
-  font-size: 11px; /* Ukuran label diperbesar sedikit agar terbaca */
+  font-size: 12px; 
   font-weight: 600;
   transition: color 0.2s ease;
   width: 100%;
   height: 100%;
 
   .icon {
-    font-size: 22px; /* Ikon diperbesar agar proporsional */
+    font-size: 22px;
     margin-bottom: 2px;
   }
 
